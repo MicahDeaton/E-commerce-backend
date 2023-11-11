@@ -19,14 +19,14 @@ Product.init(
     product_name: DataTypes.STRING,
     price: DataTypes.DECIMAL,
     stock: DataTypes.INTEGER,
-    // category_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: Category,
-    //     key: 'id'
-    //   },
-    //   onDelete: 'CASCADE',
-    // }
+    category_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Category,
+        key: 'id'
+      },
+      onDelete: 'CASCADE',
+    }
   },
   {
     sequelize,
@@ -36,7 +36,5 @@ Product.init(
     modelName: 'product',
   }
 );
-Product.belongsTo(Category);
-Category.hasMany(Product);
 
 module.exports = Product;
